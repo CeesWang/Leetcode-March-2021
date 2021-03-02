@@ -1,0 +1,18 @@
+class Solution {
+    public int[] findErrorNums(int[] nums) {
+        int [] freqArr = new int [10001];
+        int duplicateNum = 0;
+        for (int num : nums) {
+            freqArr[num]++;
+            if (freqArr[num] == 2) {
+                duplicateNum = num;
+            }
+        }
+        for (int i = 1; i < freqArr.length; ++i) {
+            if (freqArr[i] == 0) {
+                return new int [] {duplicateNum, i};
+            }
+        }
+        return new int [] {};
+    }
+}
